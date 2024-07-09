@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Device Redirect</title>
+    <script>
+        // Function to check if the device is mobile
+        function isMobile() {
+            return /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        }
+
+        // Function to handle redirection based on device type
+        function redirectToProperDirectory() {
+            if (isMobile()) {
+                window.location.href = '/mobile';
+            } else {
+                window.location.href = '/pwa';
+            }
+        }
+
+        // Execute the redirection function once the DOM is fully loaded
+        document.addEventListener('DOMContentLoaded', redirectToProperDirectory);
+    </script>
+</head>
+<body>
+    <h1>初始化中...</h1>
+    <p>如果你没有跳转到 多玩我的世界盒子，请根据你的设备类型点击链接:</p>
+    <ul>
+        <li><a href="/mobile">手机版点击这里</a></li>
+        <li><a href="/pwa">电脑版点击这里</a></li>
+    </ul>
+</body>
+</html>
